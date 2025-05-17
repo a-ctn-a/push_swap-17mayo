@@ -88,13 +88,14 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	int	big_size;
 	int	big_nb;
 	
+	*stack_b = NULL;
 	big_nb = ft_find_big(*stack_a);
 	big_size = ft_bits(big_nb);
 	column = 0;
-	while(column <= big_size)
+	while(column < big_nb)
 	{
 		row = 0;
-		while(row <= big_nb)
+		while(row <= big_size)
 		{
 			if(((*stack_a)->std >> column)&1)
 				ft_ra(stack_a);
@@ -103,7 +104,10 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 			row++;
 		}
 		while(*stack_b)
+		{
+			ft_putendl_fd("entra en el seg while",1);
 			ft_pa(stack_b, stack_a);
+		}
 		column++;
 	}
 }
