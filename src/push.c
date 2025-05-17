@@ -26,7 +26,10 @@ void	ft_push(t_stack **s_from, t_stack **s_dest)
 		*s_dest = temp;
 	}
 	else
+	{
+		temp->next = NULL;
 		*s_dest = temp;
+	}
 }
 
 void	ft_pa(t_stack **stack_b, t_stack **stack_a)

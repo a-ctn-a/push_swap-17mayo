@@ -25,9 +25,7 @@ void	push_swap(char **argv, int argc)
 	ft_standarized(stack_a, ft_node_size(stack_a));
 	if(!(ft_sorted(&stack_a)))
 		ft_out(argc,argv);
-	ft_putendl_fd("aqui",1);
 	ft_sort(&stack_a, &stack_b);
-	ft_putendl_fd("aqui 2",1);
 	ft_free_lst(&stack_a);
 }
 

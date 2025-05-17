@@ -46,6 +46,8 @@ int	ft_find_big(t_stack *stack)
 	int		big_std;
 	t_stack	*temp;
 
+	if (!stack)
+		return (0);
 	big_std = 0;
 	temp = stack;
 	while(temp && temp->next)
@@ -55,5 +57,4 @@ int	ft_find_big(t_stack *stack)
 		temp = temp->next;
 	}
 	return(big_std);
-	
 }

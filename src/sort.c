@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+#include "push_swap.h"
+
 void	ft_sort(t_stack	**stack_a, t_stack **stack_b)
 {
 	int	t_node;
@@ -24,7 +26,6 @@ void	ft_sort(t_stack	**stack_a, t_stack **stack_b)
 		ft_sort_four_five(stack_a, stack_b);
 	else if ((ft_sorted(stack_a)) && t_node > 5)
 	{
-		ft_putendl_fd("entra en radix",1);
 		ft_radix(stack_a, stack_b);
 	}
 	else
@@ -68,17 +69,14 @@ void	ft_sort_four_five(t_stack **stack_a, t_stack **stack_b)
 		ft_sa(stack_a);
 }
 
-int	ft_bits(int	num)
+int	ft_bits(int	max_num)
 {
-	int	size_bits;
+	int	max_bits;
 
-	size_bits = 0;
-	while(num > 0)
-	{
-		num >>= 1;
-		size_bits++;
-	}
-	return(size_bits);
+	max_bits = 0;
+	while ((max_num >> max_bits) != 0)
+		max_bits++;
+	return(max_bits);
 }
 
 void	ft_radix(t_stack **stack_a, t_stack **stack_b)
@@ -87,15 +85,16 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	int	row;
 	int	big_size;
 	int	big_nb;
+	int size;
 	
-	*stack_b = NULL;
 	big_nb = ft_find_big(*stack_a);
 	big_size = ft_bits(big_nb);
 	column = 0;
-	while(column < big_nb)
+	while(column < big_size)
 	{
+		size = ft_node_size(*stack_a);
 		row = 0;
-		while(row <= big_size)
+		while(row < size)
 		{
 			if(((*stack_a)->std >> column)&1)
 				ft_ra(stack_a);
@@ -105,7 +104,6 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 		}
 		while(*stack_b)
 		{
-			ft_putendl_fd("entra en el seg while",1);
 			ft_pa(stack_b, stack_a);
 		}
 		column++;
