@@ -17,12 +17,21 @@ void	ft_sort(t_stack	**stack_a, t_stack **stack_b)
 	int	t_node;
 
 	t_node = ft_node_size(*stack_a);
-	if(t_node == 3 || t_node == 2)
+	ft_putnbr_fd(t_node,1);
+	if( (ft_sorted(stack_a)) && (t_node == 3 || t_node == 2))
 		ft_sort_two_three(stack_a);
-	else if(t_node == 4 || t_node == 5)
+	else if((ft_sorted(stack_a)) && (t_node == 4 || t_node == 5))
 		ft_sort_four_five(stack_a, stack_b);
-	else
+	else if ((ft_sorted(stack_a)) && t_node > 5)
+	{
+		ft_putendl_fd("entra en radix",1);
 		ft_radix(stack_a, stack_b);
+	}
+	else
+		{
+			ft_free_lst(stack_a);
+			ft_free_lst(stack_b);
+		}
 }
 
 void	ft_sort_two_three(t_stack **stack_a)
@@ -93,7 +102,7 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 				ft_pb(stack_a, stack_b);
 			row++;
 		}
-		while(stack_b)
+		while(*stack_b)
 			ft_pa(stack_b, stack_a);
 		column++;
 	}
