@@ -63,7 +63,7 @@ int	ft_check_arg(char **argv, int argc)
 	while(argv[i])
 		i++;
 	if (i < 2)
-		return(0);
+		ft_out(argc, argv);
 	return(1);
 }
 

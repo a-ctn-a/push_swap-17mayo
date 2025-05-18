@@ -12,14 +12,11 @@
 
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 void	ft_sort(t_stack	**stack_a, t_stack **stack_b)
 {
 	int	t_node;
 
 	t_node = ft_node_size(*stack_a);
-	ft_putnbr_fd(t_node,1);
 	if( (ft_sorted(stack_a)) && (t_node == 3 || t_node == 2))
 		ft_sort_two_three(stack_a);
 	else if((ft_sorted(stack_a)) && (t_node == 4 || t_node == 5))
@@ -94,7 +91,6 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	{
 		size = ft_node_size(*stack_a);
 		row = 0;
-		ft_print_lst(*stack_a, *stack_b);
 		while(row < size)
 		{
 			if(((*stack_a)->std >> column)&1)
@@ -102,13 +98,11 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 			else
 				ft_pb(stack_a, stack_b);
 			row++;
-			ft_print_lst(*stack_a, *stack_b);
 		}
 		while(*stack_b)
 		{
 			ft_pa(stack_b, stack_a);
 		}
 		column++;
-		ft_print_lst(*stack_a, *stack_b);
 	}
 }

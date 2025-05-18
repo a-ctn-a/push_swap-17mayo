@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-//El primero pasa al último y desplaza hacia arriba todos los elementos
 void	ft_rotate(t_stack **stack)
 {
 	t_stack	*temp;

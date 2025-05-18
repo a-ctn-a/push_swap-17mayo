@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include <stdio.h> //borrar
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -69,8 +68,5 @@ void	ft_sort_two_three(t_stack **stack_a);
 void	ft_sort_four_five(t_stack **stack_a, t_stack **stack_b);
 void	ft_radix(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort(t_stack	**stack_a, t_stack **stack_b);
-
-
-void	ft_print_lst(t_stack *stack_a, t_stack *stack_b);
 
 #endif
