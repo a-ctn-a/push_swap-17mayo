@@ -94,6 +94,7 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 	{
 		size = ft_node_size(*stack_a);
 		row = 0;
+		ft_print_lst(*stack_a, *stack_b);
 		while(row < size)
 		{
 			if(((*stack_a)->std >> column)&1)
@@ -101,11 +102,13 @@ void	ft_radix(t_stack **stack_a, t_stack **stack_b)
 			else
 				ft_pb(stack_a, stack_b);
 			row++;
+			ft_print_lst(*stack_a, *stack_b);
 		}
 		while(*stack_b)
 		{
 			ft_pa(stack_b, stack_a);
 		}
 		column++;
+		ft_print_lst(*stack_a, *stack_b);
 	}
 }

@@ -45,3 +45,24 @@ int	main(int argc, char **argv)
 		exit (0);
 	return (0);
 }
+
+
+void	ft_print_lst(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack *temp_a = stack_a;
+	t_stack *temp_b = stack_b;
+
+	printf("stack a\n");
+	while (temp_a)
+	{
+		printf("valor %d y std %d \n", temp_a->value, temp_a->std);
+		temp_a = temp_a->next;
+	}
+	
+	printf("stack b\n");
+	while(temp_b)
+	{	
+		printf("valor %d y std %d \n", temp_b->value, temp_b->std);
+		temp_b = temp_b->next;
+	}
+}

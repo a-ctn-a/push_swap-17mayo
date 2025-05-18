@@ -70,4 +70,7 @@ void	ft_sort_four_five(t_stack **stack_a, t_stack **stack_b);
 void	ft_radix(t_stack **stack_a, t_stack **stack_b);
 void	ft_sort(t_stack	**stack_a, t_stack **stack_b);
 
+
+void	ft_print_lst(t_stack *stack_a, t_stack *stack_b);
+
 #endif
